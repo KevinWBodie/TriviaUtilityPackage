@@ -59,7 +59,7 @@ public class TriviaUtilityPackage
           let task = session.dataTask(with: urlRequest) {
             (data, response, error) in
             
-            print("Starting to execute the completion handler code insider generateTriviaFunction(count:Int)")
+            print("URL call returned - Starting to execute the completion handler code insider generateTriviaFunction(count:Int)")
             // Below is the completion handler code
             // check for any errors
             guard error == nil else {
