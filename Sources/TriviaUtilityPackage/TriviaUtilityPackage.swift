@@ -162,6 +162,7 @@ public class TriviaUtilityPackage
         return (triviaAnswers[index])
     }
     
+    /* Utility function to return the number of trivia functions currently stored in the array */
     public func getNumTriviaQuestions() -> Int{
         return (triviaAnswers.count)
     }
