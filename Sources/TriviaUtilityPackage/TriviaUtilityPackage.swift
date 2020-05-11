@@ -3,7 +3,7 @@
  
  Author: Kevin Bodie
  
- Purpose: Set of utility functions to make a call to an external url that supplies REST request response for obtaining trivia questions. This is a public API that runs without authentication and has no cost of use.
+ Purpose: Set of utility functions to make a call to an external url that supplies REST request response for obtaining trivia questions. This is a public API that runs without authentication and has no cost of use.       
  
  May 2020
  
@@ -14,7 +14,7 @@ import Foundation
 public class TriviaUtilityPackage
 {
     static public let shared = TriviaUtilityPackage()
-    
+       
     var isRequestPending = false
     
     // These variables are for the local storage of the trivia question and answer
