@@ -162,6 +162,7 @@ public class TriviaUtilityPackage
         return (triviaAnswers[index])
     }
     
+    /* Utility function to return the number of trivia functions currently stored in the array */
     public func getNumTriviaQuestions() -> Int{
         return (triviaAnswers.count)
     }
@@ -172,6 +173,12 @@ public class TriviaUtilityPackage
         
         print("Questions Cleared")
         print("Array size = ", triviaAnswers.count)
+    }
+    
+    
+    /* Utility function to filter the Trivia questions from the storage array. After they are filtered they will need to replaced with valid questions. Have to figure this one out. This is to get rid of the multiple choice questions or the questions that are True/False */
+    public func filterTriviaQuestions(){
+        
     }
     
     
