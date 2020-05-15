@@ -176,4 +176,10 @@ public class TriviaUtilityPackage
     }
     
     
+    /* Utility function to filter the Trivia questions from the storage array. After they are filtered they will need to replaced with valid questions. Have to figure this one out. This is to get rid of the multiple choice questions or the questions that are True/False */
+    public func filterTriviaQuestions(){
+        
+    }
+    
+    
 }
