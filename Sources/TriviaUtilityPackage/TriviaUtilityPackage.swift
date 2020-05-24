@@ -17,6 +17,10 @@ public class TriviaUtilityPackage
        
     var isRequestPending = false
     
+    // This variable will be used to get the next question from the question array.
+    var currentQuestionIndex = 0
+    var currentAnswerIndex = 0
+    
     // These variables are for the local storage of the trivia question and answer
     var triviaQuestion = String()
     var triviaAnswer = String()
@@ -162,6 +166,26 @@ public class TriviaUtilityPackage
         return (triviaAnswers[index])
     }
     
+    public func getTriviaNextQuestion() -> String{
+        if(currentQuestionIndex >= triviaQuestions.count){
+            return("")
+        }
+        triviaQuestion = triviaQuestions[currentQuestionIndex]
+        currentQuestionIndex += 1
+        
+        return (triviaQuestion)
+    }
+    
+    public func getTriviaNextAnswer() -> String{
+        if(currentAnswerIndex >= triviaAnswers.count){
+            return("")
+        }
+        triviaAnswer = triviaAnswers[currentAnswerIndex]
+        currentAnswerIndex += 1
+        
+        return (triviaAnswer)
+    }
+    
     /* Utility function to return the number of trivia functions currently stored in the array */
     public func getNumTriviaQuestions() -> Int{
         return (triviaAnswers.count)
@@ -170,6 +194,8 @@ public class TriviaUtilityPackage
     public func clearTriviaQuestions() {
         triviaQuestions.removeAll()
         triviaAnswers.removeAll()
+        currentQuestionIndex = 0 // Reset the index to the next question to give the caller.
+        currentAnswerIndex = 0 // Reset the index to the next answer to give the caller.
         
         print("Questions Cleared")
         print("Array size = ", triviaAnswers.count)
@@ -191,6 +217,12 @@ public class TriviaUtilityPackage
             /* Here is where the filter code will go */
             print(triviaQuestions[i])
             print(triviaAnswers[i])
+            
+            if triviaQuestions[i].contains("Which"){
+                print("String contains: Which")
+            }
+            
+            i += 1
         }
         
     }
