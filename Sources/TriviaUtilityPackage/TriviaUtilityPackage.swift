@@ -1,6 +1,6 @@
 /*
  File name: TriviaUtilityPackage.swift
- 
+    
  Author: Kevin Bodie
  
  Purpose: Set of utility functions to make a call to an external url that supplies REST request response for obtaining trivia questions. This is a public API that runs without authentication and has no cost of use.       
@@ -165,7 +165,7 @@ public class TriviaUtilityPackage
         }
         return (triviaAnswers[index])
     }
-    
+      
     public func getTriviaNextQuestion() -> String{
         if(currentQuestionIndex >= triviaQuestions.count){
             return("")
