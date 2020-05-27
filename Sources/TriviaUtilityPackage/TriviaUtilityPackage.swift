@@ -17,6 +17,10 @@ public class TriviaUtilityPackage
        
     var isRequestPending = false
     
+    // This variable will be used to get the next question from the question array.
+    var currentQuestionIndex = 0
+    var currentAnswerIndex = 0
+    
     // These variables are for the local storage of the trivia question and answer
     var triviaQuestion = String()
     var triviaAnswer = String()
@@ -162,6 +166,37 @@ public class TriviaUtilityPackage
         return (triviaAnswers[index])
     }
     
+    public func getTriviaNextQuestion() -> String{
+        if(currentQuestionIndex >= triviaQuestions.count){
+            return("")
+        }
+        triviaQuestion = triviaQuestions[currentQuestionIndex]
+        currentQuestionIndex += 1
+        
+        return (triviaQuestion)
+    }
+    
+    public func getTriviaNextAnswer() -> String{
+        if(currentAnswerIndex >= triviaAnswers.count){
+            return("")
+        }
+        triviaAnswer = triviaAnswers[currentAnswerIndex]
+        currentAnswerIndex += 1
+        
+        return (triviaAnswer)
+    }
+    
+    public func isThisTheLastQuestion() -> Bool{
+        var lastQuestionIndex = Int()
+        
+        lastQuestionIndex = triviaAnswers.count
+        if(currentQuestionIndex == lastQuestionIndex){
+            return true
+        }
+        
+        return false
+    }
+    
     /* Utility function to return the number of trivia functions currently stored in the array */
     public func getNumTriviaQuestions() -> Int{
         return (triviaAnswers.count)
@@ -170,6 +205,8 @@ public class TriviaUtilityPackage
     public func clearTriviaQuestions() {
         triviaQuestions.removeAll()
         triviaAnswers.removeAll()
+        currentQuestionIndex = 0 // Reset the index to the next question to give the caller.
+        currentAnswerIndex = 0 // Reset the index to the next answer to give the caller.
         
         print("Questions Cleared")
         print("Array size = ", triviaAnswers.count)
@@ -178,6 +215,26 @@ public class TriviaUtilityPackage
     
     /* Utility function to filter the Trivia questions from the storage array. After they are filtered they will need to replaced with valid questions. Have to figure this one out. This is to get rid of the multiple choice questions or the questions that are True/False */
     public func filterTriviaQuestions(){
+        
+        /* Add code below to look at the Data in the array and decide to keep the entry or remove. Note, question and answers MUST be removed concurrently otherwise the questions and answers will be out of sync.*/
+        
+        var i = Int()
+        var count = Int()
+        
+        i = 0
+        count = triviaQuestions.count
+        while(i < count)
+        {
+            /* Here is where the filter code will go */
+            print(triviaQuestions[i])
+            print(triviaAnswers[i])
+            
+            if triviaQuestions[i].contains("Which"){
+                print("String contains: Which")
+            }
+            
+            i += 1
+        }
         
     }
     
