@@ -186,6 +186,17 @@ public class TriviaUtilityPackage
         return (triviaAnswer)
     }
     
+    public func isThisTheLastQuestion() -> Bool{
+        var lastQuestionIndex = Int()
+        
+        lastQuestionIndex = triviaAnswers.count
+        if(currentQuestionIndex == lastQuestionIndex){
+            return true
+        }
+        
+        return false
+    }
+    
     /* Utility function to return the number of trivia functions currently stored in the array */
     public func getNumTriviaQuestions() -> Int{
         return (triviaAnswers.count)
